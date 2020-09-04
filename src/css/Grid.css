@@ -1,0 +1,44 @@
+.grid {
+  width: 100%;
+
+  flex: 1;
+}
+
+.categories {
+  height: 60px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: auto;
+
+  border-bottom: 1px solid black;
+}
+
+.categories-list {
+  height: 100%;
+
+  margin: 0 auto;
+  display: inline-block;
+
+  list-style-type: none;
+
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.category {
+  height: calc(100% - 3px);
+  padding: 20px;
+
+  display: inline-block;
+
+  font-size: 11pt;
+  cursor: pointer;
+}
+
+.category.selected {
+  box-shadow: 0 10px 0 -2px black;
+}
