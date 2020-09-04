@@ -2,6 +2,13 @@
   width: 100%;
 
   flex: 1;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  overflow-y: auto;
 }
 
 .categories {
