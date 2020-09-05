@@ -7,9 +7,10 @@ import { TemplateJSON } from "../types";
 
 import "../css/Grid.css";
 
-function Categories() {
-  const [selected, setSelected] = useState("All");
-
+function Categories(props: {
+  selected: string;
+  setSelected: (category: string) => void;
+}) {
   return (
     <div className="categories">
       <div className="categories-list">
@@ -17,8 +18,10 @@ function Categories() {
           (category) => (
             <li
               key={category}
-              className={`category ${category === selected ? "selected" : ""}`}
-              onClick={() => setSelected(category)}
+              className={`category ${
+                category === props.selected ? "selected" : ""
+              }`}
+              onClick={() => props.setSelected(category)}
             >
               {category}
             </li>
@@ -32,6 +35,7 @@ function Categories() {
 interface GridProps {}
 interface GridState {
   loading: Boolean;
+  category: string;
   templates: TemplateJSON[];
 }
 
@@ -40,6 +44,7 @@ export class Grid extends React.Component<GridProps, GridState> {
     super(props);
     this.state = {
       loading: true,
+      category: "All",
       templates: [] as TemplateJSON[],
     };
   }
@@ -53,15 +58,29 @@ export class Grid extends React.Component<GridProps, GridState> {
     });
   };
 
+  setCategory = (category: string) => {
+    this.setState({ ...this.state, category });
+  };
+
+  selectedTemplates = () => {
+    return this.state.templates.filter((template) =>
+      this.state.category === "All" ||
+      template.categories.includes(this.state.category)
+    );
+  };
+
   render = () => {
     if (this.state.loading) {
       return <Loading />;
     } else {
       return (
         <>
-          <Categories />
+          <Categories
+            selected={this.state.category}
+            setSelected={this.setCategory}
+          />
           <div className="grid">
-            {this.state.templates.map((template) => (
+            {this.selectedTemplates().map((template) => (
               <Template key={template.url} template={template} />
             ))}
           </div>

@@ -4,6 +4,7 @@ import "../css/Template.css";
 
 import { TemplateJSON } from "../types";
 
+
 export function Template(props: { template: TemplateJSON }) {
   return (
     <div className="template">
