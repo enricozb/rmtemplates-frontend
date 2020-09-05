@@ -11,3 +11,14 @@
   padding: 5px;
   cursor: pointer;
 }
+
+.orientation-button {
+  all: unset;
+  height: 100%;
+  padding: 0 10px 0 10px;
+}
+
+.orientation-img {
+  width: 15px;
+  height: 15px;
+}

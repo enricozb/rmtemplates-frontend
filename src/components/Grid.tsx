@@ -1,6 +1,6 @@
 import React from "react";
 import { Loading } from "./Loading";
-import { RadioButton } from "./Form";
+import { OrientationButton } from "./Form";
 import { Template } from "./Template";
 
 import { fetchTemplates } from "../api";
@@ -20,17 +20,9 @@ function Categories(props: {
         {
           <div key="orientation" className="category-container">
             <li className="category">
-              <RadioButton
-                group="orientation"
-                label="Portrait"
-                defaultChecked={true}
-                onTrue={() => props.setLandscape(false)}
-              />
-              &nbsp; &nbsp;
-              <RadioButton
-                group="orientation"
-                label="Landscape"
-                onTrue={() => props.setLandscape(true)}
+              <OrientationButton
+                landscape={props.landscape}
+                setLandscape={props.setLandscape}
               />
             </li>
           </div>
