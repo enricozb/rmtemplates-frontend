@@ -8,7 +8,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 
-  overflow-y: auto;
+  overflow-y: overlay;
 }
 
 .categories {
@@ -36,11 +36,18 @@
   overflow-x: auto;
 }
 
+.category-container {
+  height: 100%;
+  display: inline-block;
+}
+
 .category {
   height: calc(100% - 3px);
-  padding: 20px;
+  padding: 0 10px 0 10px;
 
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-size: 11pt;
   cursor: pointer;

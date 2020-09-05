@@ -1,0 +1,13 @@
+.radio-input input {
+  display: none;
+}
+
+.radio-input input:checked + span {
+  color: white;
+  background: black;
+}
+
+.radio-label {
+  padding: 5px;
+  cursor: pointer;
+}
