@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Loading } from "./Loading";
+import { Template } from "./Template";
 
 import { fetchTemplates } from "../api";
 import { TemplateJSON } from "../types";
@@ -28,11 +29,11 @@ function Categories() {
   );
 }
 
-interface GridProps {};
+interface GridProps {}
 interface GridState {
   loading: Boolean;
   templates: TemplateJSON[];
-};
+}
 
 export class Grid extends React.Component<GridProps, GridState> {
   constructor(props: GridProps) {
@@ -47,10 +48,10 @@ export class Grid extends React.Component<GridProps, GridState> {
     fetchTemplates().then((templates) => {
       this.setState({
         loading: false,
-        templates
+        templates,
       });
     });
-  }
+  };
 
   render = () => {
     if (this.state.loading) {
@@ -59,9 +60,13 @@ export class Grid extends React.Component<GridProps, GridState> {
       return (
         <>
           <Categories />
-          <div className="grid">grid</div>
+          <div className="grid">
+            {this.state.templates.map((template) => (
+              <Template key={template.url} template={template} />
+            ))}
+          </div>
         </>
       );
     }
-  }
+  };
 }

@@ -1,0 +1,22 @@
+.template {
+  height: 450px;
+  width: 300px;
+
+  margin: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.template-name {
+  font-size: 10pt;
+}
+
+.template > img {
+  height: 400px;
+  width: 300px;
+
+  outline: 1px solid black;
+}
