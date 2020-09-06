@@ -2,10 +2,11 @@
   height: 60px;
   width: 100%;
 
-
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  padding: 0 7% 0 7%;
 
   font-size: 12pt;
   font-weight: 600;
@@ -14,8 +15,39 @@
   color: white;
 }
 
-@media(max-width: 350px) {
+button.icon-button {
+  border: 0;
+  background: none;
+  color: inherit;
+
+  font: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  cursor: pointer;
+}
+
+.icon-button > img {
+  width: 20px;
+  height: 20px;
+
+  margin: 0 10px 0 10px;
+}
+
+.phantom {
+  visibility: hidden;
+}
+
+@media(max-width: 470px) {
   .topbar {
     font-size: 10pt;
+    padding: 0;
+  }
+
+  .icon-button > img {
+    width: 15px;
+    height: 15px;
   }
 }
