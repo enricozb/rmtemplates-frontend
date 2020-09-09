@@ -5,7 +5,9 @@ import "../css/Modal.css";
 
 import close from "../img/close.svg";
 
-const modal_overlay_container = document.getElementById("modal-overlay-container");
+const modal_overlay_container = document.getElementById(
+  "modal-overlay-container"
+);
 
 type ModalProps = {
   title: string;
@@ -40,25 +42,28 @@ export class Modal extends React.Component<ModalProps> {
     if (e.target === modal_overlay_container) {
       this.requestHide();
     }
-  }
+  };
 
   requestHide = () => {
     this.props.onRequestHide();
-  }
+  };
 
   render = () => {
     return ReactDOM.createPortal(
       <>
         <div className="topbar">
           <button className="icon-button" onClick={this.requestHide}>
-            <img src={close} />
+            <img src={close} alt="Closes modal button" />
           </button>
           <div>{this.props.title}</div>
           <button className="icon-button phantom">
-            <img src={close} />
+            <img
+              src={close}
+              alt="Hidden close button that does nothing when clicked"
+            />
           </button>
         </div>
-        <div>{this.props.children}</div>
+        <div className="modal-content">{this.props.children}</div>
       </>,
       this.modalDiv
     );

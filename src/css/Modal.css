@@ -25,6 +25,21 @@
   background: white;
 }
 
+.modal-content {
+  width: 100%;
+
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  overflow-y: overlay;
+
+  outline: 1px solid red;
+}
+
 @media(max-width: 600px) {
   .modal {
     width: 100%;

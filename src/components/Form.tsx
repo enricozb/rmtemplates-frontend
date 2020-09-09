@@ -21,6 +21,7 @@ export function OrientationButton(props: OrientationButtonProps) {
     <button className="orientation-button" onClick={swapLandscape}>
       <img
         className="orientation-img"
+        alt="Portrait or landscape icon"
         src={props.landscape ? landscape_img : portrait_img}
       />
     </button>

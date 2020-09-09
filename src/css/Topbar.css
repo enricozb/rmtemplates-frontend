@@ -1,5 +1,9 @@
+:root {
+  --topbar-height: 60px;
+}
+
 .topbar {
-  height: 60px;
+  height: var(--topbar-height);
   width: 100%;
 
   display: flex;
@@ -50,4 +54,47 @@ button.icon-button {
     width: 15px;
     height: 15px;
   }
+}
+
+.upload-area {
+  height: 400px;
+  width: 300px;
+
+  margin: 15px;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  outline: 1px solid black;
+}
+
+.upload-area-landscape {
+  height: 300px;
+  width: 400px;
+}
+
+.upload-form {
+  margin: 15px;
+
+  place-items: flex-start;
+}
+
+.upload-form-line {
+  width: 100%;
+
+  display: block;
+
+  margin: 10px;
+}
+
+.upload-form-line > p {
+  margin: 0;
+
+  font-size: 10pt;
+  font-weight: 600;
+}
+
+.upload-form-line> label {
+  display: block;
 }
