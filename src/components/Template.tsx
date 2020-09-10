@@ -13,7 +13,7 @@ export function Template(props: { template: TemplateJSON }) {
     <div className="template">
       <img
         className={imgClassName}
-        alt={`${props.template.name} template`}
+        alt={`template ${props.template.name}`}
         src={props.template.url}
       />
       <p className="template-name">{props.template.name}</p>

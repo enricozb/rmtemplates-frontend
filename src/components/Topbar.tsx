@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, DragEvent } from "react";
 
 import { Modal } from "./Modal";
 
@@ -9,6 +9,64 @@ import plus from "../img/plus.svg";
 
 function AboutModal() {
   return <p>About</p>;
+}
+
+function DragAndDropTemplate(props: { landscape: Boolean }) {
+  const [isInside, setIsInside] = useState(false);
+  const [file, setFile] = useState(null as File | null);
+
+  const dragHandler = (handler: (e: DragEvent<HTMLDivElement>) => void) => {
+    return (e: DragEvent<HTMLDivElement>) => {
+      handler(e);
+      e.stopPropagation();
+      e.preventDefault();
+    };
+  };
+
+  if (file) {
+    const imgRef = React.createRef<HTMLImageElement>();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (imgRef.current) {
+        imgRef.current.src = reader.result as string;
+      }
+    };
+    reader.readAsDataURL(file);
+
+    return (
+      <div className="drag-and-drop">
+        <img
+          alt={`Uploaded template ${file.name}`}
+          ref={imgRef}
+          className={
+            props.landscape ? "template-landscape" : "template-portrait"
+          }
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="drag-and-drop">
+      <div
+        className={`upload-area ${
+          props.landscape ? "upload-area-landscape" : ""
+        } ${isInside ? "upload-area-drag" : ""}`}
+        onDragOver={dragHandler(() => {})}
+        onDrop={dragHandler((e) => {
+          if (e.dataTransfer.items[0].kind === "file") {
+            setFile(e.dataTransfer.files[0]);
+          }
+          setIsInside(false);
+        })}
+        onDragEnter={dragHandler(() => setIsInside(true))}
+        onDragLeave={dragHandler(() => setIsInside(false))}
+      >
+        Click to upload a template or drop it here.
+      </div>
+    </div>
+  );
 }
 
 function UploadModal() {
@@ -31,9 +89,7 @@ function UploadModal() {
 
   return (
     <>
-      <div className={`upload-area ${landscape ? "upload-area-landscape" : ""}`}>
-        Click to upload a template or drop it here.
-      </div>
+      <DragAndDropTemplate landscape={landscape} />
       <div className="upload-form">
         <div className="upload-form-line">
           <p>Name</p>
@@ -77,6 +133,10 @@ function UploadModal() {
             />{" "}
             Landscape
           </label>
+        </div>
+
+        <div className="upload-form-line">
+          <button className="upload-form-submit">Upload</button>
         </div>
       </div>
     </>

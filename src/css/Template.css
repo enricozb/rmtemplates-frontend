@@ -14,17 +14,17 @@
   font-size: 10pt;
 }
 
-.template img {
+.template-portrait {
+  height: 400px;
+  width: 300px;
+
   outline: 1px solid black;
 }
 
-img.template-portrait {
-  height: 400px;
-  width: 300px;
-}
-
-img.template-landscape {
+.template-landscape {
   height: 400px;
   width: 300px;
   transform: rotate(90deg);
+
+  outline: 1px solid black;
 }

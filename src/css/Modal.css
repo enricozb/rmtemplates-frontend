@@ -14,7 +14,7 @@
 }
 
 .modal {
-  width: 60%;
+  width: 70%;
   height: 80%;
 
   display: flex;
@@ -35,9 +35,9 @@
   justify-content: center;
   flex-wrap: wrap;
 
-  overflow-y: overlay;
+  padding: 10px;
 
-  outline: 1px solid red;
+  overflow-y: overlay;
 }
 
 @media(max-width: 600px) {

@@ -56,15 +56,30 @@ button.icon-button {
   }
 }
 
-.upload-area {
+.drag-and-drop {
   height: 400px;
-  width: 300px;
+  width: 400px;
 
   margin: 15px;
 
   display: grid;
   place-items: center;
   text-align: center;
+}
+
+.upload-area {
+  height: 400px;
+  width: 300px;
+
+  font: inherit;
+  background: inherit;
+  border: none;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  cursor: pointer;
 
   outline: 1px solid black;
 }
@@ -72,6 +87,10 @@ button.icon-button {
 .upload-area-landscape {
   height: 300px;
   width: 400px;
+}
+
+.upload-area-drag {
+  outline: 3px solid black;
 }
 
 .upload-form {
@@ -85,7 +104,7 @@ button.icon-button {
 
   display: block;
 
-  margin: 10px;
+  padding: 10px;
 }
 
 .upload-form-line > p {
@@ -95,6 +114,20 @@ button.icon-button {
   font-weight: 600;
 }
 
-.upload-form-line> label {
+.upload-form-line > label {
   display: block;
+}
+
+.upload-form-submit {
+  width: 50%;
+
+  padding: 7px;
+  margin-left: 25%;
+
+  font: inherit;
+  background: black;
+  color: white;
+  border: none;
+
+  cursor: pointer;
 }
