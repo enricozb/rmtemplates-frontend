@@ -87,6 +87,7 @@ function DragAndDropTemplate(props: DragAndDropTemplateProps) {
 export function UploadModal() {
   // form values
   const [file, setFile] = useState(null as File | null);
+  const [author, setAuthor] = useState("");
   const [name, setName] = useState("");
   const [categories, setCategories] = useState([] as string[]);
   const [landscape, setLandscape] = useState(false);
@@ -116,7 +117,7 @@ export function UploadModal() {
     } else {
       setError("");
       setUploading(true);
-      api.uploadFile(file, name, categories, landscape).then((res) => {
+      api.uploadFile(file, author, name, categories, landscape).then((res) => {
         setUploading(false);
         if (res.error) {
           setError(res.error);
@@ -131,7 +132,9 @@ export function UploadModal() {
     if (uploading) {
       return <Loading />;
     } else if (success) {
-      return <div className="upload-form-line upload-form-success">Success!</div>;
+      return (
+        <div className="upload-form-line upload-form-success">Success!</div>
+      );
     } else {
       return (
         <div className="upload-form-line">
@@ -154,6 +157,16 @@ export function UploadModal() {
             value={name}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setName(e.target.value);
+            }}
+          />
+        </div>
+        <div className="upload-form-line">
+          <p>Author</p>
+          <input
+            type="text"
+            value={author}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setAuthor(e.target.value);
             }}
           />
         </div>
@@ -183,7 +196,7 @@ export function UploadModal() {
               name="orientation"
               checked={!landscape}
               onChange={() => setLandscape(false)}
-            />{" "}
+            />
             Portrait
           </label>
           <label>
@@ -192,7 +205,7 @@ export function UploadModal() {
               name="orientation"
               checked={landscape}
               onChange={() => setLandscape(true)}
-            />{" "}
+            />
             Landscape
           </label>
         </div>

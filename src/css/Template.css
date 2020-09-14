@@ -14,7 +14,13 @@
   cursor: pointer;
 }
 
-.template-name {
+.template-info {
+  width: 300px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
   font-size: 10pt;
 }
 

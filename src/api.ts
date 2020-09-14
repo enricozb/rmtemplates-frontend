@@ -25,12 +25,14 @@ export function fetchTemplates() {
 
 export function uploadFile(
   file: File,
+  author: string,
   name: string,
   categories: string[],
   landscape: Boolean
 ) {
   const formData = new FormData();
   formData.append("filedata", file);
+  formData.append("author", author);
   formData.append("name", name);
   formData.append("categories", categories.join(","));
   formData.append("landscape", landscape.toString());

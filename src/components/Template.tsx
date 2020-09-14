@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TemplateJSON } from "../types";
 
 import "../css/Template.css";
@@ -16,7 +16,12 @@ export function Template(props: { template: TemplateJSON }) {
         src={props.template.url}
         onClick={() => window.open(props.template.url)}
       />
-      <p className="template-name">{props.template.name}</p>
+      <div className="template-info">
+        <p>
+          <span style={{ fontWeight: 600 }}>{props.template.name}</span> -{" "}
+          {props.template.author}
+        </p>
+      </div>
     </div>
   );
 }
