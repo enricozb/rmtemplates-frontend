@@ -20,6 +20,13 @@
   height: 15px;
 }
 
-.search-hide {
+.search-close {
+  all: unset;
+  height: 100%;
+  width: 17px;
+
+  display: grid;
+  place-items:center;
+
   padding: 0 10px 0 10px;
 }

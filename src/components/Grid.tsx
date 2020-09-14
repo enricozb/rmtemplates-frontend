@@ -8,11 +8,15 @@ import { TemplateJSON } from "../types";
 
 import "../css/Grid.css";
 
+import Fuse from "fuse.js";
+
 function Categories(props: {
   landscape: boolean;
   setLandscape: (landscape: boolean) => void;
   selected: string;
   setSelected: (category: string) => void;
+  searchText: string;
+  setSearchText: (searchText: string) => void;
 }) {
   const [searching, setSearching] = useState(false);
 
@@ -22,7 +26,12 @@ function Categories(props: {
         <div className="categories-list">
           <div key="search" className="category-container">
             <li className="category">
-              <SearchButton searching={searching} setSearching={setSearching} />
+              <SearchButton
+                searching={searching}
+                setSearching={setSearching}
+                searchText={props.searchText}
+                setSearchText={props.setSearchText}
+              />
             </li>
           </div>
         </div>
@@ -66,7 +75,12 @@ function Categories(props: {
           onClick={() => setSearching(true)}
         >
           <li className="category">
-            <SearchButton searching={searching} setSearching={setSearching} />
+            <SearchButton
+              searching={searching}
+              setSearching={setSearching}
+              searchText={props.searchText}
+              setSearchText={props.setSearchText}
+            />
           </li>
         </div>
       </div>
@@ -76,20 +90,28 @@ function Categories(props: {
 
 interface GridProps {}
 interface GridState {
+  searchText: string;
   loading: boolean;
   landscape: boolean;
   category: string;
   templates: TemplateJSON[];
+  fuse: Fuse<TemplateJSON>;
 }
 
 export class Grid extends React.Component<GridProps, GridState> {
+  fuseOptions = {
+    keys: ["author", "name"],
+  };
+
   constructor(props: GridProps) {
     super(props);
     this.state = {
+      searchText: "",
       loading: true,
       landscape: false,
       category: "All",
       templates: [] as TemplateJSON[],
+      fuse: new Fuse([], this.fuseOptions),
     };
   }
 
@@ -98,8 +120,13 @@ export class Grid extends React.Component<GridProps, GridState> {
       this.setState({
         loading: false,
         templates,
+        fuse: new Fuse(templates, this.fuseOptions),
       });
     });
+  };
+
+  setSearchText = (searchText: string) => {
+    this.setState({ ...this.state, searchText });
   };
 
   setLandscape = (landscape: boolean) => {
@@ -111,7 +138,13 @@ export class Grid extends React.Component<GridProps, GridState> {
   };
 
   selectedTemplates = () => {
-    return this.state.templates.filter(
+    const fuseResults: TemplateJSON[] = this.state.searchText
+      ? this.state.fuse
+          .search(this.state.searchText)
+          .map((fuseResult) => fuseResult.item)
+      : this.state.templates;
+
+    return fuseResults.filter(
       (template) =>
         template.landscape === this.state.landscape &&
         (this.state.category === "All" ||
@@ -130,6 +163,8 @@ export class Grid extends React.Component<GridProps, GridState> {
             setLandscape={this.setLandscape}
             selected={this.state.category}
             setSelected={this.setCategory}
+            searchText={this.state.searchText}
+            setSearchText={this.setSearchText}
           />
           <div className="grid">
             {this.selectedTemplates().map((template) => (

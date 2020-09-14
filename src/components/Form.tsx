@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 
 import "../css/Form.css";
 import landscape_img from "../img/landscape.png";
 import portrait_img from "../img/portrait.png";
 import search_img from "../img/search.png";
+import close_img from "../img/close-black.svg";
 
 type OrientationButtonProps = {
   landscape: boolean;
@@ -31,10 +32,17 @@ export function OrientationButton(props: OrientationButtonProps) {
 
 type SearchButtonProps = {
   searching: boolean;
-  setSearching: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearching: (searching: boolean) => void;
+  searchText: string;
+  setSearchText: (searchText: string) => void;
 };
 
-export function SearchButton({searching, setSearching}: SearchButtonProps) {
+export function SearchButton({
+  searching,
+  setSearching,
+  searchText,
+  setSearchText,
+}: SearchButtonProps) {
   if (searching) {
     return (
       <>
@@ -45,8 +53,19 @@ export function SearchButton({searching, setSearching}: SearchButtonProps) {
             src={search_img}
           />
         </button>
-        <input type="text" />
-        <p className="search-hide" onClick={() => setSearching(false)}>Hide</p>
+        <input
+          type="text"
+          value={searchText}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setSearchText(e.target.value);
+          }}
+        />
+        <button
+          className="search-close"
+          onClick={() => setSearching(false)}
+        >
+          <img src={close_img} alt="Button to close searchbar" />
+        </button>
       </>
     );
   }

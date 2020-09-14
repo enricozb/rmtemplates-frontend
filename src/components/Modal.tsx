@@ -53,7 +53,7 @@ export class Modal extends React.Component<ModalProps> {
       <>
         <div className="topbar">
           <button className="icon-button" onClick={this.requestHide}>
-            <img src={close} alt="Closes modal button" />
+            <img src={close} alt="Button to close modal" />
           </button>
           <div>{this.props.title}</div>
           <button className="icon-button phantom">
