@@ -6,7 +6,7 @@ import * as api from "../api";
 import "../css/UploadModal.css";
 
 type DragAndDropTemplateProps = {
-  landscape: Boolean;
+  landscape: boolean;
   setFile: (file: File) => void;
 };
 

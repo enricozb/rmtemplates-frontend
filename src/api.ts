@@ -28,7 +28,7 @@ export function uploadFile(
   author: string,
   name: string,
   categories: string[],
-  landscape: Boolean
+  landscape: boolean
 ) {
   const formData = new FormData();
   formData.append("filedata", file);

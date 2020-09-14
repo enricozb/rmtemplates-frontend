@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Loading } from "./Loading";
-import { OrientationButton } from "./Form";
+import { OrientationButton, SearchButton } from "./Form";
 import { Template } from "./Template";
 
 import { fetchTemplates } from "../api";
@@ -9,24 +9,42 @@ import { TemplateJSON } from "../types";
 import "../css/Grid.css";
 
 function Categories(props: {
-  landscape: Boolean;
-  setLandscape: (landscape: Boolean) => void;
+  landscape: boolean;
+  setLandscape: (landscape: boolean) => void;
   selected: string;
   setSelected: (category: string) => void;
 }) {
+  const [searching, setSearching] = useState(false);
+
+  if (searching) {
+    return (
+      <div className="categories">
+        <div className="categories-list">
+          <div key="search" className="category-container">
+            <li className="category">
+              <SearchButton searching={searching} setSearching={setSearching} />
+            </li>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="categories">
       <div className="categories-list">
-        {
-          <div key="orientation" className="category-container">
-            <li className="category">
-              <OrientationButton
-                landscape={props.landscape}
-                setLandscape={props.setLandscape}
-              />
-            </li>
-          </div>
-        }
+        <div
+          key="orientation"
+          className="category-container"
+          onClick={() => props.setLandscape(!props.landscape)}
+        >
+          <li className="category">
+            <OrientationButton
+              landscape={props.landscape}
+              setLandscape={props.setLandscape}
+            />
+          </li>
+        </div>
         {["All", "Creative", "Grids", "Life/organize", "Lines"].map(
           (category) => (
             <div key={`${category}-div`} className="category-container">
@@ -42,6 +60,15 @@ function Categories(props: {
             </div>
           )
         )}
+        <div
+          key="search"
+          className="category-container"
+          onClick={() => setSearching(true)}
+        >
+          <li className="category">
+            <SearchButton searching={searching} setSearching={setSearching} />
+          </li>
+        </div>
       </div>
     </div>
   );
@@ -49,8 +76,8 @@ function Categories(props: {
 
 interface GridProps {}
 interface GridState {
-  loading: Boolean;
-  landscape: Boolean;
+  loading: boolean;
+  landscape: boolean;
   category: string;
   templates: TemplateJSON[];
 }
@@ -75,7 +102,7 @@ export class Grid extends React.Component<GridProps, GridState> {
     });
   };
 
-  setLandscape = (landscape: Boolean) => {
+  setLandscape = (landscape: boolean) => {
     this.setState({ ...this.state, landscape });
   };
 

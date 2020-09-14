@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 import "../css/Form.css";
-import portrait_img from "../img/portrait.png";
 import landscape_img from "../img/landscape.png";
+import portrait_img from "../img/portrait.png";
+import search_img from "../img/search.png";
 
 type OrientationButtonProps = {
-  landscape: Boolean;
-  setLandscape: (landscape: Boolean) => void;
+  landscape: boolean;
+  setLandscape: (landscape: boolean) => void;
 };
 
 export function OrientationButton(props: OrientationButtonProps) {
@@ -28,23 +29,36 @@ export function OrientationButton(props: OrientationButtonProps) {
   );
 }
 
-type RadioButtonProps = {
-  defaultChecked?: Boolean;
-  group: string;
-  label: string;
-  onTrue: () => void;
+type SearchButtonProps = {
+  searching: boolean;
+  setSearching: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export function RadioButton(props: RadioButtonProps) {
+export function SearchButton({searching, setSearching}: SearchButtonProps) {
+  if (searching) {
+    return (
+      <>
+        <button className="search-button">
+          <img
+            className="search-img"
+            alt="Search filter for templates"
+            src={search_img}
+          />
+        </button>
+        <input type="text" />
+        <p className="search-hide" onClick={() => setSearching(false)}>Hide</p>
+      </>
+    );
+  }
+
   return (
-    <label className="radio-input">
-      <input
-        type="radio"
-        defaultChecked={Boolean(props.defaultChecked)}
-        name={props.group}
-        onChange={props.onTrue}
+    <button className="search-button">
+      <img
+        className="search-img"
+        alt="Search filter for templates"
+        src={search_img}
+        onClick={() => setSearching(true)}
       />
-      <span className="radio-label">{props.label}</span>
-    </label>
+    </button>
   );
 }
