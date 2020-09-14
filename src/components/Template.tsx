@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { TemplateJSON } from "../types";
 
 import "../css/Template.css";
-
-import { TemplateJSON } from "../types";
 
 export function Template(props: { template: TemplateJSON }) {
   const imgClassName = props.template.landscape
@@ -15,6 +14,7 @@ export function Template(props: { template: TemplateJSON }) {
         className={imgClassName}
         alt={`template ${props.template.name}`}
         src={props.template.url}
+        onClick={() => window.open(props.template.url)}
       />
       <p className="template-name">{props.template.name}</p>
     </div>

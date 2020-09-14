@@ -44,11 +44,15 @@
 }
 
 .upload-form-line {
-  width: 100%;
+  width: 260px;
 
   display: block;
 
-  padding: 10px;
+  padding: 10px 0 10px 0;
+}
+
+.upload-form-line > input {
+  width: 80%;
 }
 
 .upload-form-line > p {
@@ -64,6 +68,11 @@
 
 .upload-form-error {
   color: red;
+}
+
+.upload-form-success {
+  color: green;
+  text-align: center;
 }
 
 .upload-form-submit {

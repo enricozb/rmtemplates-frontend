@@ -1,4 +1,7 @@
 import React, { useState, ChangeEvent, DragEvent } from "react";
+import { Loading } from "./Loading";
+
+import * as api from "../api";
 
 import "../css/UploadModal.css";
 
@@ -89,6 +92,8 @@ export function UploadModal() {
   const [landscape, setLandscape] = useState(false);
 
   const [error, setError] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const onCategoryChange = (
     e: ChangeEvent<HTMLInputElement>,
@@ -101,7 +106,7 @@ export function UploadModal() {
     }
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (!file) {
       setError("No file was uploaded.");
     } else if (name === "") {
@@ -110,6 +115,31 @@ export function UploadModal() {
       setError("Select at least one category.");
     } else {
       setError("");
+      setUploading(true);
+      api.uploadFile(file, name, categories, landscape).then((res) => {
+        setUploading(false);
+        if (res.error) {
+          setError(res.error);
+        } else {
+          setSuccess(true);
+        }
+      });
+    }
+  };
+
+  const uploadButton = () => {
+    if (uploading) {
+      return <Loading />;
+    } else if (success) {
+      return <div className="upload-form-line upload-form-success">Success!</div>;
+    } else {
+      return (
+        <div className="upload-form-line">
+          <button className="upload-form-submit" onClick={onSubmit}>
+            Upload
+          </button>
+        </div>
+      );
     }
   };
 
@@ -171,11 +201,7 @@ export function UploadModal() {
           <div className="upload-form-line upload-form-error">{error}</div>
         )}
 
-        <div className="upload-form-line">
-          <button className="upload-form-submit" onClick={onSubmit}>
-            Upload
-          </button>
-        </div>
+        {uploadButton()}
       </div>
     </>
   );

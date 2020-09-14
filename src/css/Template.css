@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+.template > img {
+  cursor: pointer;
+}
+
 .template-name {
   font-size: 10pt;
 }
