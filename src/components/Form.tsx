@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 
 import "../css/Form.css";
 import landscape_img from "../img/landscape.png";
@@ -43,6 +43,16 @@ export function SearchButton({
   searchText,
   setSearchText,
 }: SearchButtonProps) {
+
+  const inputRef = React.createRef<HTMLInputElement>();
+
+  useEffect(() => {
+    if (searching) {
+      inputRef.current!.focus();
+    }
+  }, [searching]);
+
+
   if (searching) {
     return (
       <>
@@ -54,6 +64,7 @@ export function SearchButton({
           />
         </button>
         <input
+          ref={inputRef}
           type="text"
           value={searchText}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
