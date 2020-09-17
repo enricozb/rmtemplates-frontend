@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/remarkable-templates/static/css/main.d78ece15.chunk.css",
-    "main.js": "/remarkable-templates/static/js/main.30002464.chunk.js",
-    "main.js.map": "/remarkable-templates/static/js/main.30002464.chunk.js.map",
-    "runtime-main.js": "/remarkable-templates/static/js/runtime-main.260128d5.js",
-    "runtime-main.js.map": "/remarkable-templates/static/js/runtime-main.260128d5.js.map",
-    "static/js/2.cc392e76.chunk.js": "/remarkable-templates/static/js/2.cc392e76.chunk.js",
-    "static/js/2.cc392e76.chunk.js.map": "/remarkable-templates/static/js/2.cc392e76.chunk.js.map",
-    "index.html": "/remarkable-templates/index.html",
-    "precache-manifest.8a8bc206f9f5fd6f813511ed746bba59.js": "/remarkable-templates/precache-manifest.8a8bc206f9f5fd6f813511ed746bba59.js",
-    "service-worker.js": "/remarkable-templates/service-worker.js",
-    "static/css/main.d78ece15.chunk.css.map": "/remarkable-templates/static/css/main.d78ece15.chunk.css.map",
-    "static/js/2.cc392e76.chunk.js.LICENSE.txt": "/remarkable-templates/static/js/2.cc392e76.chunk.js.LICENSE.txt",
-    "static/media/close-black.svg": "/remarkable-templates/static/media/close-black.208ccc7a.svg",
-    "static/media/close.svg": "/remarkable-templates/static/media/close.d6a4018a.svg",
-    "static/media/plus.svg": "/remarkable-templates/static/media/plus.06f513f8.svg",
-    "static/media/question.svg": "/remarkable-templates/static/media/question.67d64b8c.svg"
+    "main.css": "/static/css/main.d78ece15.chunk.css",
+    "main.js": "/static/js/main.62af9ada.chunk.js",
+    "main.js.map": "/static/js/main.62af9ada.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c8a21426.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c8a21426.js.map",
+    "static/js/2.cc392e76.chunk.js": "/static/js/2.cc392e76.chunk.js",
+    "static/js/2.cc392e76.chunk.js.map": "/static/js/2.cc392e76.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b01ff909eb7f735c0f94f1810eb44ebe.js": "/precache-manifest.b01ff909eb7f735c0f94f1810eb44ebe.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.d78ece15.chunk.css.map": "/static/css/main.d78ece15.chunk.css.map",
+    "static/js/2.cc392e76.chunk.js.LICENSE.txt": "/static/js/2.cc392e76.chunk.js.LICENSE.txt",
+    "static/media/close-black.svg": "/static/media/close-black.208ccc7a.svg",
+    "static/media/close.svg": "/static/media/close.d6a4018a.svg",
+    "static/media/plus.svg": "/static/media/plus.06f513f8.svg",
+    "static/media/question.svg": "/static/media/question.67d64b8c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.260128d5.js",
+    "static/js/runtime-main.c8a21426.js",
     "static/js/2.cc392e76.chunk.js",
     "static/css/main.d78ece15.chunk.css",
-    "static/js/main.30002464.chunk.js"
+    "static/js/main.62af9ada.chunk.js"
   ]
 }
