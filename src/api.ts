@@ -1,5 +1,4 @@
-// const endpoint = "https://storage.googleapis.com/remarkable-templates";
-const endpoint = "/api";
+const endpoint = "https://remarkable-templates.herokuapp.com";
 
 async function loadFromurls(urls: string[]) {
   const templates = await Promise.all(
@@ -37,7 +36,7 @@ export function uploadFile(
   formData.append("categories", categories.join(","));
   formData.append("landscape", landscape.toString());
 
-  return fetch("/api/upload", {
+  return fetch(`${endpoint}/upload`, {
     method: "POST",
     body: formData,
   }).then((resp) => resp.json());
