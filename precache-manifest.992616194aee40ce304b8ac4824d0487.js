@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a1ae6a7a0c2486128178a7c6c79eebce",
+    "revision": "a07f2c4fd9deb7695dbdf98026484bd7",
     "url": "/remarkable-templates/index.html"
   },
   {
-    "revision": "947f7b01addaa8a2c17f",
-    "url": "/remarkable-templates/static/css/main.8bfb8297.chunk.css"
+    "revision": "e07c4e78cd9dc390e109",
+    "url": "/remarkable-templates/static/css/main.3e7e0078.chunk.css"
   },
   {
     "revision": "7e1bc7b0a51ced056d44",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/remarkable-templates/static/js/2.cc392e76.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "947f7b01addaa8a2c17f",
+    "revision": "e07c4e78cd9dc390e109",
     "url": "/remarkable-templates/static/js/main.93dc45ee.chunk.js"
   },
   {
