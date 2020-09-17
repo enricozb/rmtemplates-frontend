@@ -11,6 +11,13 @@ function AboutModal() {
   return (
     <div className="faq">
       <p>
+        <h1>What is This</h1>
+        This is a website to host and view community-built templates (or
+        backgrounds) for the journaling functionality of the{" "}
+        <a href="https://remarkable.com/">reMarkable Tablet</a>.
+      </p>
+
+      <p>
         <h1>How To Use a Template</h1>
         Refer to{" "}
         <a href="https://remarkablewiki.com/tips/templates">
@@ -28,8 +35,8 @@ function AboutModal() {
       <p>
         <h1>How To Delete a Template</h1>
         Please file an issue to the{" "}
-        <a href="https://github.com/enricozb/remarkable-templates">
-          remarkable-templates
+        <a href="https://github.com/enricozb/rmtemplates-frontend">
+          rmtemplates-frontend
         </a>{" "}
         github repository with the name and author of the template you wish to
         delete.
@@ -38,8 +45,8 @@ function AboutModal() {
       <p>
         <h1>Source & Bug Reporting</h1>
         The source code of this site is at the{" "}
-        <a href="https://github.com/enricozb/remarkable-templates">
-          remarkable-templates
+        <a href="https://github.com/enricozb/rmtemplates-frontend">
+          rmtemplates-frontend
         </a>{" "}
         github repository. Please report any issues or bugs that you may find to
         that repository as well.
