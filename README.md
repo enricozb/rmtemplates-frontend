@@ -1,3 +1,14 @@
+![](src/img/about.png)
+
+# reMarkable Template Repository
+
+[rm.ezb.io](https://rm.ezb.io)
+
+View reMarkable template created by the community or contribute your own!
+
+
+## React Preamble
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
