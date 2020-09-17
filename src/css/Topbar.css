@@ -44,6 +44,22 @@ button.icon-button {
   visibility: hidden;
 }
 
+.faq {
+  width: 500px;
+  font-size: 11pt;
+}
+
+.faq p {
+  margin: 0 0 50px 0;
+}
+
+.faq > h1 {
+  margin: 0;
+
+  font-size: 14pt;
+  font-weight: 600;
+}
+
 @media(max-width: 470px) {
   .topbar {
     font-size: 10pt;
@@ -54,4 +70,9 @@ button.icon-button {
     width: 15px;
     height: 15px;
   }
+
+  .faq {
+    width: 90%;
+  }
 }
+

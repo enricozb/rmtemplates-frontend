@@ -8,7 +8,42 @@ import question from "../img/question.svg";
 import plus from "../img/plus.svg";
 
 function AboutModal() {
-  return <p>About</p>;
+  return (
+    <div className="faq">
+      <h1>How To Use a Template</h1>
+      <p>
+        Refer to{" "}
+        <a href="https://remarkablewiki.com/tips/templates">
+          reMarkable wiki entry
+        </a>{" "}
+        on this topic.
+      </p>
+      <h1>Uploading Landscape Templates</h1>
+      <p>
+        Landscape templates do not need to be rotated, and should be the same
+        orientation as portrait templates, 1404x1872 pixels.
+      </p>
+      <h1>How To Delete a Template</h1>
+      <p>
+        Please file an issue to the{" "}
+        <a href="https://github.com/enricozb/remarkable-templates">
+          remarkable-templates
+        </a>{" "}
+        github repository with the name and author of the template you wish to
+        delete.
+      </p>
+
+      <h1>Source & Bug Reporting</h1>
+      <p>
+        The source code of this site is at the{" "}
+        <a href="https://github.com/enricozb/remarkable-templates">
+          remarkable-templates
+        </a>{" "}
+        github repository. Please report any issues or bugs that you may find to
+        that repository as well.
+      </p>
+    </div>
+  );
 }
 
 export function Topbar() {
