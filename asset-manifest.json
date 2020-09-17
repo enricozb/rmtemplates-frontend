@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/remarkable-templates/static/css/main.8bfb8297.chunk.css",
-    "main.js": "/remarkable-templates/static/js/main.ea9a3eaa.chunk.js",
-    "main.js.map": "/remarkable-templates/static/js/main.ea9a3eaa.chunk.js.map",
+    "main.js": "/remarkable-templates/static/js/main.93dc45ee.chunk.js",
+    "main.js.map": "/remarkable-templates/static/js/main.93dc45ee.chunk.js.map",
     "runtime-main.js": "/remarkable-templates/static/js/runtime-main.260128d5.js",
     "runtime-main.js.map": "/remarkable-templates/static/js/runtime-main.260128d5.js.map",
     "static/js/2.cc392e76.chunk.js": "/remarkable-templates/static/js/2.cc392e76.chunk.js",
     "static/js/2.cc392e76.chunk.js.map": "/remarkable-templates/static/js/2.cc392e76.chunk.js.map",
     "index.html": "/remarkable-templates/index.html",
-    "precache-manifest.9ecdcfcb9eff523bc2399b80b72c89e3.js": "/remarkable-templates/precache-manifest.9ecdcfcb9eff523bc2399b80b72c89e3.js",
+    "precache-manifest.80d83e2d186391beac55eb5cda53e078.js": "/remarkable-templates/precache-manifest.80d83e2d186391beac55eb5cda53e078.js",
     "service-worker.js": "/remarkable-templates/service-worker.js",
     "static/css/main.8bfb8297.chunk.css.map": "/remarkable-templates/static/css/main.8bfb8297.chunk.css.map",
     "static/js/2.cc392e76.chunk.js.LICENSE.txt": "/remarkable-templates/static/js/2.cc392e76.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.260128d5.js",
     "static/js/2.cc392e76.chunk.js",
     "static/css/main.8bfb8297.chunk.css",
-    "static/js/main.ea9a3eaa.chunk.js"
+    "static/js/main.93dc45ee.chunk.js"
   ]
 }
