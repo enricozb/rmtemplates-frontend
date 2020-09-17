@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/remarkable-templates/precache-manifest.992616194aee40ce304b8ac4824d0487.js"
+  "/remarkable-templates/precache-manifest.8a8bc206f9f5fd6f813511ed746bba59.js"
 );
 
 self.addEventListener('message', (event) => {
