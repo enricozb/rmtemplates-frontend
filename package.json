@@ -21,7 +21,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "PORT=8000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -41,5 +41,6 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "https://remarkable-templates.herokuapp.com",
   "homepage": "https://ezb.io/remarkable-templates/"
 }
